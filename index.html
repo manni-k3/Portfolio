@@ -483,6 +483,75 @@
     }
 
     /* ========================================================================
+   ZERTIFIKAT-MODAL
+   ======================================================================== */
+.cert-tile[data-cert] { cursor: pointer; }
+
+.cert-modal-overlay {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(0,0,0,0.80);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.cert-modal-overlay.open { opacity: 1; pointer-events: auto; }
+
+.cert-modal {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  max-width: 780px; width: 100%;
+  max-height: 90vh; overflow: auto;
+  position: relative;
+  transform: translateY(24px) scale(0.97);
+  transition: transform 0.35s cubic-bezier(.2,.7,.2,1);
+}
+.cert-modal-overlay.open .cert-modal { transform: none; }
+
+.cert-modal-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--border);
+}
+.cert-modal-header h3 { font-size: 1.05rem; }
+
+.cert-modal-close {
+  background: var(--surface-hi);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: grid; place-items: center;
+  font-size: 1.1rem; line-height: 1;
+  transition: background 0.2s, color 0.2s;
+  flex-shrink: 0;
+}
+.cert-modal-close:hover { background: var(--border-hi); color: var(--text); }
+
+.cert-modal img  { width: 100%; display: block; border-radius: 0 0 var(--radius) var(--radius); }
+.cert-modal iframe {
+  width: 100%; height: 62vh;
+  border: none; display: block;
+  border-radius: 0 0 var(--radius) var(--radius);
+}
+
+/* Ansehen-Link nur bei earned Kacheln */
+.cert-view {
+  display: inline-flex; align-items: center; gap: 4px;
+  color: var(--accent); font-size: 0.9rem; font-weight: 500;
+  margin-top: 14px;
+  transition: color 0.2s;
+}
+.cert-view .chev { transition: transform 0.25s ease; font-weight: 400; }
+.cert-view:hover { color: var(--accent-hi); }
+.cert-view:hover .chev { transform: translateX(4px); }
+
+
+    /* ========================================================================
        13) SCROLL-REVEAL  (sanfte Apple-typische Einblendung)
        ======================================================================== */
     .reveal {
@@ -678,15 +747,33 @@
           <p class="section-sub">Formale Nachweise – erworben und in Vorbereitung.</p>
         </div>
 
+
+        
+        
+        
+
         <div class="cert-grid reveal">
           <!-- HIER ANPASSEN: eine Kachel pro Zertifikat -->
-          <div class="cert-tile">
+          <div class="cert-tile" data-cert="certs/Element_of_AI_Zertifikat.pdf" data-cert-title="Elements of AI">
             <div class="cert-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M9 13.5V22l3-2 3 2v-8.5"/></svg>
             </div>
-            <h3>CompTIA Security+</h3>
-            <p class="issuer">CompTIA</p>
-            <span class="badge planned">In Vorbereitung</span>
+            <h3>Elements of AI</h3>
+            <p class="issuer">University of Helsinki</p>
+            <span class="badge done">Erworben</span>
+            <br>
+  <a class="cert-view" href="#">Ansehen <span class="chev">›</span></a>
+          </div>
+
+          <div class="cert-tile" data-cert="certs/SAP_User_Zertifikat.pdf" data-cert-title="SAP User Certification">
+            <div class="cert-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>
+            </div>
+            <h3>SAP User Certification</h3>
+            <p class="issuer"> SAP S/4HANA</p>
+            <span class="badge done">Erworben</span>
+            <br>
+  <a class="cert-view" href="#">Ansehen <span class="chev">›</span></a>
           </div>
 
           <div class="cert-tile">
@@ -694,26 +781,17 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg>
             </div>
             <h3>AWS Cloud Practitioner</h3>
-            <p class="issuer">Amazon Web Services</p>
-            <span class="badge planned">In Vorbereitung</span>
-          </div>
-
-          <div class="cert-tile">
-            <div class="cert-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>
-            </div>
-            <h3>Azure Fundamentals</h3>
-            <p class="issuer">Microsoft · AZ-900</p>
+            <p class="issuer">AWS (CLF-C02)</p>
             <span class="badge planned">Geplant</span>
           </div>
 
           <div class="cert-tile">
             <div class="cert-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M9 13.5V22l3-2 3 2v-8.5"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </div>
-            <h3>Elements of AI</h3>
-            <p class="issuer">University of Helsinki</p>
-            <span class="badge done">Erworben</span>
+            <h3>Linux</h3>
+            <p class="issuer">LPIC-1</p>
+            <span class="badge planned">In Planung</span>
           </div>
         </div>
       </div>
@@ -821,6 +899,16 @@
     </div>
   </footer>
 
+  <div class="cert-modal-overlay" id="certModal" role="dialog" aria-modal="true">
+  <div class="cert-modal">
+    <div class="cert-modal-header">
+      <h3 id="certModalTitle"></h3>
+      <button class="cert-modal-close" id="certModalClose" aria-label="Schließen">✕</button>
+    </div>
+    <img id="certModalImg" src="" alt="Zertifikat" style="display:none">
+    <iframe id="certModalIframe" src="" title="Zertifikat" style="display:none"></iframe>
+  </div>
+
   <!-- ============================ JAVASCRIPT ============================ -->
   <script>
     // ----- Mobiles Menü --------------------------------------------------
@@ -863,6 +951,45 @@
       });
     }, { rootMargin: '-45% 0px -50% 0px' });
     document.querySelectorAll('section[id], footer[id]').forEach(s => spyObserver.observe(s));
+
+    // ----- Zertifikat-Modal -----------------------------------------------
+const certModal  = document.getElementById('certModal');
+const certImg    = document.getElementById('certModalImg');
+const certIframe = document.getElementById('certModalIframe');
+const certTitle  = document.getElementById('certModalTitle');
+const certClose  = document.getElementById('certModalClose');
+
+document.querySelectorAll('.cert-tile[data-cert]').forEach(tile => {
+  tile.addEventListener('click', (e) => {
+    e.preventDefault();
+    const src = tile.dataset.cert;
+    certTitle.textContent = tile.dataset.certTitle || '';
+
+    if (src.endsWith('.pdf')) {
+      certImg.style.display    = 'none';
+      certIframe.style.display = 'block';
+      certIframe.src           = src + '#toolbar=0';
+    } else {
+      certIframe.style.display = 'none';
+      certImg.style.display    = 'block';
+      certImg.src              = src;
+    }
+    certModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+});
+
+function closeCertModal() {
+  certModal.classList.remove('open');
+  document.body.style.overflow = '';
+  setTimeout(() => { certImg.src = ''; certIframe.src = ''; }, 300);
+}
+certClose.addEventListener('click', closeCertModal);
+certModal.addEventListener('click', e => { if (e.target === certModal) closeCertModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCertModal(); });
   </script>
+
+  
+</div>
 </body>
 </html>
