@@ -533,10 +533,19 @@
 .cert-modal-close:hover { background: var(--border-hi); color: var(--text); }
 
 .cert-modal img  { width: 100%; display: block; border-radius: 0 0 var(--radius) var(--radius); }
-.cert-modal iframe {
-  width: 100%; height: 62vh;
-  border: none; display: block;
+
+.cert-modal-iframe-wrapper {
+  overflow: hidden;
+  height: 62vh;
   border-radius: 0 0 var(--radius) var(--radius);
+}
+
+.cert-modal iframe {
+  width: 100%;
+  height: calc(62vh + 42px);
+  margin-top: -42px;
+  border: none;
+  display: block;
 }
 
 /* Ansehen-Link nur bei earned Kacheln */
@@ -905,8 +914,10 @@
       <h3 id="certModalTitle"></h3>
       <button class="cert-modal-close" id="certModalClose" aria-label="Schließen">✕</button>
     </div>
-    <img id="certModalImg" src="" alt="Zertifikat" style="display:none">
-    <iframe id="certModalIframe" src="" title="Zertifikat" style="display:none"></iframe>
+   <img id="certModalImg" src="" alt="Zertifikat" style="display:none">
+<div class="cert-modal-iframe-wrapper">
+  <iframe id="certModalIframe" src="" title="Zertifikat" style="display:none"></iframe>
+</div>
   </div>
 
   <!-- ============================ JAVASCRIPT ============================ -->
