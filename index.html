@@ -679,9 +679,7 @@
       <div class="container">
         <!-- HIER ANPASSEN: dein Statement -->
         <p class="statement reveal">
-          Ich baue, breche und verstehe Systeme.
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-          sed do eiusmod tempor incididunt ut labore et dolore.
+          Ich lerne am besten wenn ich Dinge selbst aufbaue und ausprobiere. Was ich nicht kenne, baue ich nach. Was nicht funktioniert, analysiere ich bis ich weiß warum.
         </p>
 
         <div class="stats reveal">
@@ -699,29 +697,26 @@
       <div class="container">
         <div class="section-head reveal">
           <p class="overline">Werdegang</p>
-          <h2 class="section-title">Lebenslauf</h2>
+          <h2 class="section-title">Zeugnis &amp; Lebenslauf</h2>
           <p class="section-sub">Mein beruflicher und schulischer Weg im Überblick.</p>
         </div>
 
         <div class="cv-list reveal">
           <!-- HIER ANPASSEN: je ein Eintrag pro Station -->
-          <div class="cv-item">
-            <div class="cv-date">2025 — heute</div>
-            <div>
-              <h3>Umschulung: Fachinformatiker Systemintegration</h3>
-              <p class="org">Comcave College · Augsburg</p>
-            </div>
-          </div>
+          <div class="cv-item" data-cert="certs/lindauer_manfred.pdf" data-cert-title="Teilnahmebescheinigung – Comcave College">
+  <div class="cv-date">2025 — heute</div>
+  <div>
+    <h3>Umschulung: Fachinformatiker Systemintegration</h3>
+    <p class="org">Comcave College · Augsburg</p>
+    <a class="cert-view" href="#">Zeugnis <span class="chev">›</span></a>
+  </div>
+</div>
 
           <div class="cv-item">
             <div class="cv-date">2013 — 2025</div>
             <div>
-              <h3>Arbeitsplätze</h3>
-              <p class="org">Raumschmiede, Genderkingen</p>
-              <p class="org">Compo, Rain am Lech</p>
-              <p class="org">Dehner, Rain am Lech</p>
-              <p class="org">Bofrost, Ingolstadt</p>
-              <p class="org">M.Stief GmbH, Münster</p>
+              <h3>Vor der IT</h3>
+              <p class="org">Über 10 Jahre praktische Berufserfahrung, hauptsächlich als Staplerfahrer und im Lagerbereich. Diese Zeit hat mir Zuverlässigkeit, strukturiertes Arbeiten und Verantwortungsbewusstsein vermittelt. Eigenschaften die ich heute in die IT mitnehme.</p>
             </div>
           </div>
 
@@ -729,9 +724,7 @@
             <div class="cv-date">2010 — 2013</div>
             <div>
               <h3>Ausbildung</h3>
-              <p class="org">Zimmermann</p>
-              <p>Holzbau Brendle, Burgheim</p>
-              <p>Abschluss: Zimmermann</p>
+              <p class="org">Ausbildung zum Zimmerer, Abschluss: Geselle</p>
             </div>
           </div>
 
@@ -824,13 +817,12 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="6" rx="1"/><rect x="2" y="9" width="20" height="6" rx="1"/><rect x="2" y="15" width="20" height="6" rx="1"/><path d="M6 6h.01M6 12h.01M6 18h.01"/></svg>
             </div>
             <h3>Raspberry Pi 5 Homelab</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Containerisierte
-              Dienste, zentral verwaltet und rund um die Uhr überwacht.</p>
+            <p>Mein Homelab ist mein Lernlabor – und gleichzeitig produktiver Betrieb. Auf einem Raspberry Pi 5 laufen über 10 Dienste 24/7, vollständig containerisiert mit Docker und verwaltet via Portainer. Alle Dienste sind hinter einem Nginx Reverse Proxy mit automatischem Wildcard-SSL erreichbar und werden kontinuierlich überwacht.</p>
             <div class="tags">
               <span class="tag">Docker</span><span class="tag">Portainer</span>
               <span class="tag">Linux</span><span class="tag">Reverse Proxy</span>
             </div>
-            <a href="#" class="link-more">Mehr erfahren <span class="chev">›</span></a>
+            
           </article>
 
           <!-- HIER ANPASSEN: Projekt 2 -->
@@ -839,11 +831,11 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
             </div>
             <h3>Self-hosted Vault</h3>
-            <p>Eigener Passwortmanager hinter Reverse Proxy mit automatischem SSL.</p>
+            <p>Vaultwarden als selbst gehostete Alternative zu kommerziellen Passwortmanagern. Passwörter und sensible Daten bleiben auf eigener Hardware. Von überall sicher erreichbar via Tailscale.</p>
             <div class="tags">
-              <span class="tag">Vaultwarden</span><span class="tag">Nginx</span><span class="tag">Let's Encrypt</span>
+              <span class="tag">Vaultwarden</span><span class="tag">Nginx</span><span class="tag">Let's Encrypt</span><span class="tag">Tailscale</span>
             </div>
-            <a href="#" class="link-more">Mehr erfahren <span class="chev">›</span></a>
+            
           </article>
 
           <!-- HIER ANPASSEN: Projekt 3 -->
@@ -852,11 +844,11 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l3-4 3 3 5-7"/></svg>
             </div>
             <h3>Monitoring &amp; Security</h3>
-            <p>Verfügbarkeits-Monitoring und Schwachstellen-Analyse des Netzwerks.</p>
+            <p>Alle Homelab-Dienste werden kontinuierlich mit Uptime Kuma überwacht. Ergänzend dazu eine automatisierte Nmap-Routine die das Netzwerk regelmäßig scannt und bei auffälligen Ergebnissen benachrichtigt.</p>
             <div class="tags">
-              <span class="tag">Uptime Kuma</span><span class="tag">Nmap</span><span class="tag">Wazuh</span>
+              <span class="tag">Uptime Kuma</span><span class="tag">Nmap</span><span class="tag">Linux</span>
             </div>
-            <a href="#" class="link-more">Mehr erfahren <span class="chev">›</span></a>
+            
           </article>
 
           <!-- HIER ANPASSEN: Projekt 4 -->
@@ -865,11 +857,11 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
             </div>
             <h3>Automatisierung</h3>
-            <p>Wiederkehrende Aufgaben per Bash &amp; Python automatisiert.</p>
+            <p>Eigene Skripte automatisieren wiederkehrende Aufgaben. PowerShell übernimmt Systemüberwachung und Benachrichtigungen auf Windows, gesteuert via Task Scheduler.</p>
             <div class="tags">
-              <span class="tag">Bash</span><span class="tag">Python</span><span class="tag">Cron</span>
+              <span class="tag">Bash</span><span class="tag">PowerShell</span><span class="tag">Cron</span><span class="tag">Task Scheduler</span>
             </div>
-            <a href="#" class="link-more">Mehr erfahren <span class="chev">›</span></a>
+            
           </article>
 
         </div>
@@ -883,7 +875,7 @@
       <div class="footer-cta reveal">
         <p class="overline">Kontakt</p>
         <h2>Lass uns sprechen.</h2>
-        <p>Auf der Suche nach motiviertem IT-Nachwuchs? Ich freue mich auf deine Nachricht.</p>
+        <p>Auf der Suche nach motiviertem IT-Nachwuchs? Ich freue mich auf Ihre Nachricht.</p>
 
         <div class="socials">
           <!-- HIER ANPASSEN: echte Links -->
@@ -970,7 +962,7 @@ const certIframe = document.getElementById('certModalIframe');
 const certTitle  = document.getElementById('certModalTitle');
 const certClose  = document.getElementById('certModalClose');
 
-document.querySelectorAll('.cert-tile[data-cert]').forEach(tile => {
+document.querySelectorAll('[data-cert]').forEach(tile => {
   tile.addEventListener('click', (e) => {
     e.preventDefault();
     const src = tile.dataset.cert;
