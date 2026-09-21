@@ -444,7 +444,44 @@
       transition: transform 0.4s cubic-bezier(.2,.7,.2,1), border-color 0.4s ease;
     }
     .project-tile:hover { transform: translateY(-6px); border-color: var(--border-hi); }
-    .project-tile.feature { grid-column: 1 / -1; min-height: 300px; padding: 44px; }
+    .project-tile.feature {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+      align-items: center;
+      gap: 48px;
+      min-height: 350px;
+      padding: 44px;
+    }
+    .feature-copy .project-icon { margin-bottom: 30px; }
+    .feature-copy h3 { margin-top: 0; }
+    .setup-panel { border-left: 1px solid var(--border); padding-left: 36px; }
+    .setup-heading {
+      display: block;
+      margin-bottom: 14px;
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    .setup-host {
+      padding: 17px 20px;
+      margin-bottom: 8px;
+      border-radius: 16px;
+      background: rgba(88, 145, 255, 0.13);
+    }
+    .setup-host span, .setup-host small { display: block; color: var(--text-muted); font-size: 0.8rem; }
+    .setup-host strong { display: block; font-size: 1.08rem; font-weight: 600; }
+    .setup-list { margin: 0; }
+    .setup-list div {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 11px 2px;
+      border-bottom: 1px solid var(--border);
+    }
+    .setup-list div:last-child { border-bottom: 0; }
+    .setup-list dt { color: var(--text-muted); }
+    .setup-list dd { margin: 0; text-align: right; font-weight: 500; }
 
     .project-icon {
       width: 54px; height: 54px;
@@ -621,7 +658,8 @@
 
       .stats { grid-template-columns: repeat(2, 1fr); }
       .project-grid { grid-template-columns: 1fr; }
-      .project-tile.feature { grid-column: auto; }
+      .project-tile.feature { grid-column: auto; grid-template-columns: 1fr; gap: 30px; }
+      .setup-panel { border-left: 0; border-top: 1px solid var(--border); padding: 30px 0 0; }
       .cv-item { grid-template-columns: 1fr; gap: 8px; padding: 26px; }
 
       .nav-toggle { display: flex; }
@@ -653,6 +691,7 @@
       .stats { grid-template-columns: 1fr; }
       .hero-cta { flex-direction: column; gap: 18px; }
       .project-tile { padding: 30px; min-height: 280px; }
+      .project-tile.feature { padding: 30px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -862,16 +901,27 @@
 
           <!-- HIER ANPASSEN: Projekt 1 (große Feature-Kachel über volle Breite) -->
           <article class="project-tile feature">
-            <div class="project-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="6" rx="1"/><rect x="2" y="9" width="20" height="6" rx="1"/><rect x="2" y="15" width="20" height="6" rx="1"/><path d="M6 6h.01M6 12h.01M6 18h.01"/></svg>
+            <div class="feature-copy">
+              <div class="project-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="6" rx="1"/><rect x="2" y="9" width="20" height="6" rx="1"/><rect x="2" y="15" width="20" height="6" rx="1"/><path d="M6 6h.01M6 12h.01M6 18h.01"/></svg>
+              </div>
+              <h3>Raspberry Pi 5 Homelab</h3>
+              <p>Mein Homelab nutze ich, um neue Technologien praktisch auszuprobieren. Ich richte Dienste selbst ein und teste, wie sie im Netzwerk erreichbar sind. Wenn etwas nicht funktioniert, suche ich nach der Ursache und lerne dabei, wie die einzelnen Bausteine zusammenspielen.</p>
             </div>
-            <h3>Raspberry Pi 5 Homelab</h3>
-            <p>Mein Homelab nutze ich, um neue Technologien praktisch auszuprobieren. Auf einem Raspberry Pi 5 betreibe ich mehr als zehn Dienste mit Docker und verwalte die Container über Portainer. Dabei habe ich mich unter anderem mit Reverse Proxies, Zertifikaten, Netzwerkzugriff und Monitoring beschäftigt.</p>
-            <div class="tags">
-              <span class="tag">Docker</span><span class="tag">Portainer</span>
-              <span class="tag">Linux</span><span class="tag">Reverse Proxy</span>
+            <div class="setup-panel" aria-label="Technischer Aufbau des Homelabs">
+              <span class="setup-heading">Setup im Überblick</span>
+              <div class="setup-host">
+                <span>Hardware</span>
+                <strong>Raspberry Pi 5</strong>
+                <small>Mehr als zehn Dienste</small>
+              </div>
+              <dl class="setup-list">
+                <div><dt>Container</dt><dd>Docker</dd></div>
+                <div><dt>Verwaltung</dt><dd>Portainer</dd></div>
+                <div><dt>Zugriff</dt><dd>Nginx</dd></div>
+                <div><dt>Monitoring</dt><dd>Uptime Kuma</dd></div>
+              </dl>
             </div>
-            
           </article>
 
           <!-- HIER ANPASSEN: Projekt 2 -->
